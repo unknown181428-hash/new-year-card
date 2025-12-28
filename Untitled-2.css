@@ -1,0 +1,105 @@
+:root{
+  --bg1: #0f172a;
+  --bg2: #4f46e5;
+  --accent: #ff6b81;
+  --glass: rgba(255,255,255,0.06);
+  --text: #eef2ff;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(79,70,229,0.15), transparent),
+              linear-gradient(180deg,var(--bg1), #0b1220 60%);
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+
+/* layout card */
+.wrap{width:100%;max-width:740px}
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:16px;
+  padding:28px;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+  text-align:center;
+  position:relative;
+  overflow:visible;
+}
+
+/* heart */
+.heart{
+  position:absolute;
+  right:20px;
+  top:-20px;
+  font-size:36px;
+  transform-origin:center;
+  color:var(--accent);
+  filter: drop-shadow(0 6px 18px rgba(255,107,129,0.12));
+  cursor:pointer;
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float { 0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+
+/* headline */
+h1{
+  font-family: "Great Vibes", cursive;
+  font-size:48px;
+  margin:8px 0 6px;
+  letter-spacing:0.5px;
+  color:var(--text);
+}
+p{margin:0 0 18px; color: #dfe7ff; opacity:0.95}
+
+/* countdown */
+.countdown{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin:18px 0 20px;
+  flex-wrap:wrap;
+}
+.timebox{
+  background:var(--glass);
+  padding:12px 14px;
+  border-radius:10px;
+  min-width:72px;
+  box-shadow: inset 0 -2px 8px rgba(255,255,255,0.02);
+}
+.timebox span{display:block; font-weight:700; font-size:20px}
+.timebox small{display:block; opacity:0.8; font-size:12px; margin-top:6px}
+
+/* buttons */
+.controls{display:flex;justify-content:center;gap:12px;margin-top:6px;flex-wrap:wrap}
+.btn{
+  border:0;
+  padding:10px 16px;
+  border-radius:10px;
+  background:transparent;
+  color:var(--text);
+  cursor:pointer;
+  font-weight:600;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.35);
+}
+.btn.primary{
+  background:linear-gradient(90deg,var(--bg2), #ff6b81);
+  color:white;
+}
+
+/* small footer */
+.small{margin-top:14px;color:#cdd6ff66;font-size:13px}
+
+/* responsive */
+@media (max-width:460px){
+  h1{font-size:36px}
+  .timebox{min-width:58px;padding:10px}
+  .heart{font-size:28px; right:12px; top:-12px}
+}
+
+/* confetti canvas sits on top */
+canvas#confetti{position:fixed;left:0;top:0;pointer-events:none;z-index:40}
